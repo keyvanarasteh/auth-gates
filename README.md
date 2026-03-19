@@ -3,12 +3,13 @@
 `qicro-auth-gates` is an advanced telemetry, rate limit analysis, and security testing crate designed natively for the Qicro environment. It provides burst request analysis, WAF detection, and active session monitoring via WebSockets.
 
 ## Capabilities
-- 🚀 **High-Concurrency Burst Testing**: Uses `tokio::sync::Semaphore` to stress-test target endpoints with extreme throughput.
-- 🛡️ **WAF & Security Header Detection**: Advanced signature checks for identifying barriers like Cloudflare, AWS WAF, Akamai, Sucuri, Imperva, and F5.
-- 🔑 **Multi-Auth Execution**: Effortless testing using `Bearer`, `ApiKey`, `Basic`, and `Cookie` authentication, plus the revolutionary **Stateful Login-Then-Test** workflow which grabs live JSON tokens mid-analysis.
-- 🔌 **Integrated WebSocket Analysis**: Supports both raw `ping` frame messaging limits and burst connection load limits.
-- 📡 **Live Telemetry Server**: Can spawn a lightweight Axum-based broadcast mechanism on `0.0.0.0:3001` (via the `server` feature), tracking the testing suite's `LiveUpdate` messages in real-time.
-- 🛡️ **Aegis Defensive Session Guard**: Built-in backend identity guarding with Hardware Device Fingerprinting, Impossible geo-travel detection (Geo-velocity), ISP Reputation Intelligence, and Automated Incident Response (Lockdown).
+- 🚀 [**High-Concurrency Burst Testing**](docs/ENGINE.md): Uses `tokio::sync::Semaphore` to stress-test target endpoints with extreme throughput.
+- 🛡️ [**WAF & Security Header Detection**](docs/ENGINE.md): Checks and parses server response headers for identifying barriers like Cloudflare, AWS WAF, Akamai, Sucuri, Imperva, and F5.
+- 🔑 [**Multi-Auth Execution Configuration**](docs/MODELS.md): Testing setup using configurations like `Bearer`, `ApiKey`, `Basic`, and `Cookie` authentication, plus dynamic pre-test login injection.
+- 🕵️ [**API Endpoint Fuzzer & HTML Reporting**](docs/FUZZER_AND_WS.md): Asynchronous wordlist iteration to uncover hidden endpoints, coupled with a beautiful static HTML dashboard generator.
+- 🔌 [**Integrated WebSocket Discovery**](docs/FUZZER_AND_WS.md): Rapid `ws://` connection testing on potentially misconfigured WebSocket directories.
+- 📡 [**Live Telemetry Server**](docs/SERVER.md): Spawns a lightweight Axum-based API and WS broadcast mechanism (via the `server` feature), tracking the testing suite's messages in real-time.
+- 🛡️ [**Aegis Defensive Session Guard**](docs/AEGIS.md): Built-in backend identity guarding with Hardware Device Fingerprinting, Impossible geo-travel detection, and Session concurrency limits.
 
 ## Features Let
 * `default` - No default features to keep the minimal core library dependencies light.
