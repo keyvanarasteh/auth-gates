@@ -29,3 +29,8 @@ tokio-stream = "0.1"
 # Telemetry Server (Feature Gated)
 axum = { version = "0.6", features = ["ws", "macros"], optional = true }
 tower-http = { version = "0.4", features = ["cors"], optional = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
+wiremock = "0.6"
+
